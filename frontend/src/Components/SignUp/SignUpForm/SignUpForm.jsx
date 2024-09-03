@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import ShowHidePassword from '../../Shared/MiniComponents/ShowHidePassword/ShowHidePassword';
 import s from './SignUpForm.module.scss';
 import axios from 'axios';
-import { apiUrl } from "../../Data/BaseApi.js";
+import { apiUrl } from "../../../Data/BaseApi";
 
 const SignUpForm = () =>
 {
@@ -64,7 +64,7 @@ const SignUpForm = () =>
         Password: password
       };
 
-      const url = `${apiUrl}loginregister`;
+      const url = `${apiUrl}register`;
 
       try
       {
