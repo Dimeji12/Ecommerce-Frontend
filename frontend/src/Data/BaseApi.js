@@ -1,2 +1,2 @@
 
-export const apiUrl = "http://localhost:5243/api/"
+export const apiUrl = "https://backend20240903110238.scm.azurewebsites.net/api/"
