@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import ShowHidePassword from '../../Shared/MiniComponents/ShowHidePassword/ShowHidePassword';
 import s from './SignUpForm.module.scss';
 import axios from 'axios';
-import { apiUrl } from "../../../Data/BaseApi";
+import { apiUrl } from '../../../Data/BaseApi';
 
 const SignUpForm = () =>
 {
@@ -64,12 +64,31 @@ const SignUpForm = () =>
         Password: password
       };
 
-      const url = `${apiUrl}register`;
+      const url = `${apiUrl}account/register`;
 
       try
       {
         await axios.post(url, data);
         console.log('SignUp successful, navigating to:', redirectUrl); // Debugging
+
+        // If registration is successful, post to customer table
+        const customerData = {
+          email: email,
+          // Include additional customer fields if needed
+        };
+
+        const customerApiUrl = 'https://backend20240903110238.azurewebsites.net/api/customer';
+
+        try
+        {
+          await axios.post(customerApiUrl, customerData);
+          console.log('Customer creation successful');
+        } catch (customerError)
+        {
+          console.error('Failed to create customer:', customerError);
+          alert('Registration successful, but failed to create customer record.');
+        }
+
         navigate(redirectUrl);
       } catch (error)
       {

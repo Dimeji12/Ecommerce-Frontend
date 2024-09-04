@@ -7,7 +7,7 @@ import { setLoginData } from "src/Features/userSlice";
 import useOnlineStatus from "src/Hooks/Helper/useOnlineStatus";
 import ShowHidePassword from "../../Shared/MiniComponents/ShowHidePassword/ShowHidePassword";
 import s from "./LogInForm.module.scss";
-import { apiUrl } from "../../../Data/BaseApi";
+import { apiUrl } from "../../../Data/BaseApi"
 
 const LogInForm = () =>
 {
@@ -74,7 +74,7 @@ const LogInForm = () =>
     try
     {
       // Make a POST request to the login endpoint
-      const response = await axios.post(`${apiUrl}login`, {
+      const response = await axios.post(`${apiUrl}account/login`, {
         email,
         password,
       });

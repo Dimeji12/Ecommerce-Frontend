@@ -23,7 +23,7 @@ const ProductsPage = () =>
     {
       try
       {
-        const response = await fetch(`${apiUrl}Products`, {
+        const response = await fetch("https://backend20240903110238.azurewebsites.net/api/Products", {
           method: 'GET',
           credentials: 'include',
           headers: {
